@@ -22,8 +22,8 @@ Follow the next steps to install the application in your local machine:
 
 1. Clone the repository in your local machine.
 2. Install the dependencies with the following command
-	 ```sh
-		yarn
+   ```sh
+   yarn
 	 ```
 	 or
 	 ```sh
