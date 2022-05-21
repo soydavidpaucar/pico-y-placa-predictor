@@ -60,6 +60,30 @@ const App = () => {
 		return days[day];
 	};
 	
+	// verified if vehicle is allowed to drive or not
+	const isAllowedToDrive = (plateNumber, plateDate, plateTime) => {
+		const lastNumber = getLastNumber(plateNumber);
+		const dayName = getDayName(plateDate);
+		const slateRestrictedDay = picoYPlacaConfig[dayName]?.includes(parseInt(lastNumber));
+		const restrictedHours = picoYPlacaConfig.restrictedHours;
+		let isHoliday = false;
+		
+		for (const holiday of holidays) {
+			if (plateDate >= holiday.startDate && plateDate < holiday.endDate) {
+				isHoliday = true;
+			}
+		}
+		
+		if (slateRestrictedDay && !isHoliday) {
+			if (plateTime >= restrictedHours.Morning[0] && plateTime <= restrictedHours.Morning[1]) {
+				return false;
+			}
+			return !(plateTime >= restrictedHours.Afternoon[0] && plateTime <= restrictedHours.Afternoon[1]);
+		}
+		return true;
+		
+	};
+	
 	return (
 		<div className="h-screen flex items-center justify-center bg-slate-900 ">
 			<div className="flex flex-col">
