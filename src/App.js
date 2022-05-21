@@ -110,6 +110,15 @@ const App = () => {
 							 name="picoYPlacaTime"
 							 id="picoYPlacaTime"
 							 className="bg-white border-0 p-2 outline-0 mb-7 rounded-2xl" onChange={handlePlateTime}></input>
+				
+				{plateNumber !== '' && plateDate !== '' && plateTime !== '' && isAllowedToDrive(plateNumber, plateDate, plateTime) ?
+					<div className="bg-emerald-500 shadow-lg shadow-cyan-500/50 rounded-2xl p-3">
+						<h2 className="text-1xl text-white">You are allowed to drive &#9989;</h2>
+					</div> : plateNumber !== '' && plateDate !== '' && plateTime !== '' ?
+						<div className="bg-red-500 shadow-lg shadow-red-500/50 rounded-2xl p-3">
+							<p className="text-white">Don't do it! You aren't allowed to drive &#9940;</p>
+						</div> : null
+				}
 			
 			</div>
 		</div>);
