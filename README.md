@@ -8,6 +8,9 @@ information of Quito - Ecuador city.
 
 [Current Pico y Placa Restrictions](https://www.primicias.ec/noticias/sociedad/pico-placa-quito-trafico-movilidad/)
 
+_Note to take in mind: Holidays were sourced from the Google Calendar API to avoid hard-coded holiday dates and this 
+may vary a little from local holiday as holiday day could be moved by the government._ 
+
 ## 📄 Reference Documentation
 
 For further reference, please consider the following sections:
