@@ -3,13 +3,6 @@ import picoYPlacaConfig from './config/pico-y-placa-configs.json';
 
 const apiKey = process.env.REACT_APP_APIKEY;
 
-// get data from google calendar api
-const handleFetchHolidays = async () => {
-	const endpoint = `https://www.googleapis.com/calendar/v3/calendars/en.ec%23holiday%40group.v.calendar.google.com/events?key=${apiKey}`;
-	const response = await fetch(endpoint);
-	return await response.json();
-};
-
 const App = () => {
 	// handle variable states
 	const [plateNumber, setPlateNumber] = useState('');
@@ -19,17 +12,19 @@ const App = () => {
 	
 	// fetch holidays from google calendar
 	useEffect(() => {
-		handleFetchHolidays().then(response => {
-			const holidays = response.items.map(item => {
-				return {
-					startDate: item.start.date,
-					endDate: item.end.date,
-				};
-			});
-			
-			setHolidays(holidays);
-			
-		}).catch(error => {
+		fetch(`https://www.googleapis.com/calendar/v3/calendars/en.ec%23holiday%40group.v.calendar.google.com/events?key=${apiKey}`)
+			.then(response => response.json())
+			.then(result => {
+				const holidays = result.items.map(item => {
+					return {
+						startDate: item.start.date,
+						endDate: item.end.date,
+					};
+				});
+				
+				setHolidays(holidays);
+				
+			}).catch(error => {
 			console.log(error);
 		});
 	}, []);
