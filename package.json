@@ -1,0 +1,7 @@
+{
+  "name": "pico-y-placa-predictor",
+  "version": "1.0.0",
+  "repository": "git@github.com:soydavidpaucar/pico-y-placa-predictor.git",
+  "author": "David Paucar <soydavidpaucar@gmail.com>",
+  "license": "GPL-3.0"
+}
