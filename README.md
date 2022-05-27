@@ -43,9 +43,9 @@ Follow the next steps to install the application in your local machine:
 4. Add your created key to `.env` file.
 5. Run the application with the following command
 	 ```sh
-   yarn
+   yarn start
 	 ```
 	 or
    ```sh
-   npm install
+   npm start
    ```
